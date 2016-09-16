@@ -5,12 +5,12 @@
 <style>
     .youtube-player {
         position: relative;
-        padding-bottom: 50%;
+        padding-bottom: 56.23%;
         /* Use 75% for 4:3 videos */
         height: 0;
         overflow: hidden;
-        max-width: 50%;
-        background: #000;
+        max-width: 45%;
+
         margin: 5px;
     }
 
@@ -18,9 +18,9 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 50%;
-        height: 50%;
-        z-index: 50;
+        width: 40%;
+        height: 40%;
+        z-index: 100;
         background: transparent;
     }
 
@@ -29,8 +29,8 @@
         display: block;
         left: 0;
         margin: auto;
-        max-width: 50%;
-        width: 50%;
+        max-width: 40%;
+        width: 40%;
         position: absolute;
         right: 0;
         top: 0;
@@ -47,8 +47,8 @@
     }
 
     .youtube-player .play {
-        height: 50px;
-        width: 50px;
+        height: 40px;
+        width: 40px;
         left: 50%;
         top: 50%;
         margin-left: -36px;
@@ -76,39 +76,38 @@
 
     <script>
 
-        /* Light YouTube Embeds by @labnol */
-        /* Web: http://labnol.org/?p=27941 */
+      /* Light YouTube Embeds by @labnol */
+      /* Web: http://labnol.org/?p=27941 */
 
-        document.addEventListener("DOMContentLoaded",
-            function() {
-                var div, n,
-                    v = document.getElementsByClassName("youtube-player");
-                for (n = 0; n < v.length; n++) {
-                    div = document.createElement("div");
-                    div.setAttribute("data-id", v[n].dataset.id);
-                    div.innerHTML = labnolThumb(v[n].dataset.id);
-                    div.onclick = labnolIframe;
-                    v[n].appendChild(div);
-                }
-            });
+      document.addEventListener("DOMContentLoaded",
+          function() {
+              var div, n,
+                  v = document.getElementsByClassName("youtube-player");
+              for (n = 0; n < v.length; n++) {
+                  div = document.createElement("div");
+                  div.setAttribute("data-id", v[n].dataset.id);
+                  div.innerHTML = labnolThumb(v[n].dataset.id);
+                  div.onclick = labnolIframe;
+                  v[n].appendChild(div);
+              }
+          });
 
-        function labnolThumb(id) {
-            var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
-                play = '<div class="play"></div>';
-            return thumb.replace("ID", id) + play;
-        }
+      function labnolThumb(id) {
+          var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
+              play = '<div class="play"></div>';
+          return thumb.replace("ID", id) + play;
+      }
 
-        function labnolIframe() {
-            var iframe = document.createElement("iframe");
-            var embed = "https://www.youtube.com/embed/ID?autoplay=1";
-            iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
-            iframe.setAttribute("frameborder", "0");
-            iframe.setAttribute("allowfullscreen", "1");
-            this.parentNode.replaceChild(iframe, this);
-        }
+      function labnolIframe() {
+          var iframe = document.createElement("iframe");
+          var embed = "https://www.youtube.com/embed/ID?autoplay=1";
+          iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
+          iframe.setAttribute("frameborder", "0");
+          iframe.setAttribute("allowfullscreen", "1");
+          this.parentNode.replaceChild(iframe, this);
+      }
 
-    </script>
-
+  </script>
 
 
 </body>
